@@ -1,14 +1,8 @@
-class User {
-    boolean active = true;
-    boolean isActive(){
-        return active;
-    }
-}
 public class Main {
     public void main(String[] args) {
-        User user = new User();
-        if (user !=null && user.isActive()) {
-            System.out.println("Access granted");
+        int temperature = 12;
+        if (temperature < 15) {
+            System.out.println("Возьмите куртку");
         }
     }
 }

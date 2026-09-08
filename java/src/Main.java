@@ -1,10 +1,14 @@
+class User {
+    boolean active = true;
+    boolean isActive(){
+        return active;
+    }
+}
 public class Main {
     public void main(String[] args) {
-        int age=20;
-        boolean adult = age >= 18;
-        boolean hasTicket = true;
-        boolean enter = adult && hasTicket;
-        boolean discount = age < 18 || age > 65;
-        boolean blocked = !hasTicket;
+        User user = new User();
+        if (user !=null && user.isActive()) {
+            System.out.println("Access granted");
+        }
     }
 }

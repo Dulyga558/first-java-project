@@ -1,9 +1,11 @@
 public class Main {
+    static int value = 10;
+
+    static void print(int value) {
+        System.out.println("Параметр перекрыл поле: " + value);
+    }
+
     public static void main(String[] args) {
-        int x = 10;
-        if (x > 0) {
-            int messageCount = 1;
-            System.out.println("Внутри блока: " + messageCount);
-        }
+        print(45);
     }
 }

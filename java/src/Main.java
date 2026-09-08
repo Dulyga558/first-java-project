@@ -1,11 +1,20 @@
 public class Main {
-    public static void main(String[] args) {
-        int age = 20;
-        boolean hasTicket = true;
+    static void openAdminPanel() { System.out.println("Панель администратора открыта"); }
+    static void openProfile() { System.out.println("Профиль пользователя открыт"); }
+    static void showError() { System.out.println("Ошибка доступа"); }
 
-        // Іштей жазудың орнына логикалық && қолдану
-        if (age >= 18 && hasTicket) {
-            System.out.println("Вход разрешен!");
+    public static void main(String[] args) {
+        String role = "ADMIN";
+
+        switch (role) {
+            case "ADMIN":
+                openAdminPanel();
+                break;
+            case "USER":
+                openProfile();
+                break;
+            default:
+                showError();
         }
     }
 }

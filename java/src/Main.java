@@ -1,10 +1,11 @@
 public class Main {
-    static int square(int x) {
-        return x * x;
+    static void change(int x) {
+        x = 100;
     }
 
     public static void main(String[] args) {
-        int result = square(7);
-        System.out.println("Квадрат числа: " + result);
+        int a = 5;
+        change(a); // әдіске тек көшірмесін береміз
+        System.out.println("Значение переменной 'a': " + a); // нәтиже бәрібір 5 болып қалады
     }
 }

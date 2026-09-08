@@ -1,21 +1,30 @@
 public class Main {
-    static int readNumber() { return 17; }
-
-    static boolean isPrime(int n) {
-        if (n <= 1) return false;
-        for (int i = 2; i * i <= n; i++) {
-            if (n % i == 0) return false;
-        }
-        return true;
+    static boolean isFizz(int number) {
+        return number % 3 == 0;
     }
 
-    static void printAnswer(int n, boolean prime) {
-        System.out.println("Число " + n + (prime ? " простое" : " составное"));
+    static boolean isBuzz(int number) {
+        return number % 5 == 0;
+    }
+
+    static String labelFor(int number) {
+        if (isFizz(number) && isBuzz(number)) {
+            return "FizzBuzz";
+        }
+        if (isFizz(number)) {
+            // Лекция 2 бойынша егер тек 3-ке бөлінсе
+            return "Fizz";
+        }
+        if (isBuzz(number)) {
+            // Лекция 2 бойынша егер тек 5-ке бөлінсе
+            return "Buzz";
+        }
+        return String.valueOf(number);
     }
 
     public static void main(String[] args) {
-        int n = readNumber();
-        boolean prime = isPrime(n);
-        printAnswer(n, prime);
+        for (int i = 1; i <= 100; i++) {
+            System.out.println(labelFor(i));
+        }
     }
 }

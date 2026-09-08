@@ -1,11 +1,14 @@
 public class Main {
-    static int value = 10;
+    static int sum(int a, int b) {
+        return a + b;
+    }
 
-    static void print(int value) {
-        System.out.println("Параметр перекрыл поле: " + value);
+    static double sum(double a, double b) {
+        return a + b;
     }
 
     public static void main(String[] args) {
-        print(45);
+        System.out.println("Сумма int: " + sum(10, 20));
+        System.out.println("Сумма double: " + sum(10.5, 20.5));
     }
 }

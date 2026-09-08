@@ -1,9 +1,14 @@
 public class Main {
+
+    static int readChoice() {
+        return 3;
+    }
+
     public static void main(String[] args) {
-        int n = 5;
-        while (n > 0) {
-            System.out.println(n);
-            n--;
-        }
+        int choice;
+        do {
+            choice = readChoice();
+            System.out.println("Выбран пункт меню: " + choice);
+        } while (choice < 1 || choice > 5);
     }
 }

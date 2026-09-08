@@ -1,13 +1,11 @@
 public class Main {
     public static void main(String[] args) {
-        int score = 82;
-        String grade;
+        int age = 20;
+        boolean hasTicket = true;
 
-        if (score >= 90) grade = "A";
-        else if (score >= 75) grade = "B";
-        else if (score >= 50) grade = "C";
-        else grade = "F";
-
-        System.out.println("Ваша оценка: " + grade);
+        // Іштей жазудың орнына логикалық && қолдану
+        if (age >= 18 && hasTicket) {
+            System.out.println("Вход разрешен!");
+        }
     }
 }

@@ -1,20 +1,13 @@
 public class Main {
-    static void openAdminPanel() { System.out.println("Панель администратора открыта"); }
-    static void openProfile() { System.out.println("Профиль пользователя открыт"); }
-    static void showError() { System.out.println("Ошибка доступа"); }
-
     public static void main(String[] args) {
-        String role = "ADMIN";
+        int day = 6;
 
-        switch (role) {
-            case "ADMIN":
-                openAdminPanel();
-                break;
-            case "USER":
-                openProfile();
-                break;
-            default:
-                showError();
-        }
+        String label = switch (day) {
+            case 1, 2, 3, 4, 5 -> "Будний день";
+            case 6, 7 -> "Выходной";
+            default -> "Ошибка";
+        };
+
+        System.out.println("Сегодня: " + label);
     }
 }

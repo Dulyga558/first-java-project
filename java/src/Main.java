@@ -1,13 +1,11 @@
 public class Main {
-    static String readName() { return "Алексей"; }
-    static int calculateScore() { return 85; }
-    static void printResult(String name, int score) {
-        System.out.println("Студент " + name + " получил балл: " + score);
+    public static int max(int a, int b) {
+        if (a > b) return a;
+        return b;
     }
 
     public static void main(String[] args) {
-        String name = readName();
-        int score = calculateScore();
-        printResult(name, score);
+        int result = max(15, 27);
+        System.out.println("Максимальное число: " + result);
     }
 }

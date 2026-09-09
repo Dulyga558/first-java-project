@@ -1,4 +1,4 @@
-public class Main {
+public class Practice1 {
     public static void main(String[] args) {
         // 1. Атыңыз
         System.out.println("Нұржігітұлы Дулыға");

@@ -1,26 +1,22 @@
 public class Practice1 {
     public static void main(String[] args) {
-        // Задание 3.1: Создание переменных
-        String name = "Amina";
-        int age = 19;
-        double averageScore = 87.5;
-        boolean javaStudent = true;
-        char group = 'A';
+        // Задание 3.2. Арифметика
+        int a = 17;
+        int b = 5;
 
-        // Вывод всех данных в одной понятной строке
-        System.out.println("Студент: " + name + ", Возраст: " + age +
-                ", Средний балл: " + averageScore +
-                ", Студент Java: " + javaStudent +
-                ", Группа: " + group);
+        System.out.println("a + b = " + (a + b));
+        System.out.println("a - b = " + (a - b));
+        System.out.println("a * b = " + (a * b));
+        System.out.println("a / b = " + (a / b));
+        System.out.println("a % b = " + (a % b));
 
         /*
-         * Ответы на вопросы к Заданию 3.1:
-         * 1. Почему String начинается с большой буквы, а int — с маленькой?
-         *    Ответ: String — это ссылочный тип (класс), а int — примитивный тип данных.
-         * 2. Какой из типов выше является классом?
-         *    Ответ: String.
-         * 3. Какие четыре типа в примере являются примитивными?
-         *    Ответ: int, double, boolean, char.
+         * Ответы и предсказания к Заданию 3.2:
+         * 1. Предсказание значения a / b (17 / 5):
+         *    Результат = 3, так как при делении целых чисел (int) в Java
+         *    дробная часть отбрасывается.
+         * 2. Предсказание значения a % b (17 % 5):
+         *    Результат = 2, так как остаток от деления 17 на 5 равен 2 (17 = 5 * 3 + 2).
          */
     }
 }

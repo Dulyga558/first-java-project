@@ -1,19 +1,30 @@
 public class Practice1 {
     public static void main(String[] args) {
-        // Задание 3.3. Остаток от деления
-        int number = 7;
+        // Этап 4. Мини-задача «Чек покупки» - Дано:
+        String product = "Coffee";
+        int quantity = 3;
+        double price = 1250.0;
+        double discountPercent = 10.0;
 
-        // 1. Вывод остатка от деления на 2
-        System.out.println("Остаток от деления 7 на 2: " + (number % 2));
+        // Вычисления (Формулалар арқылы есептеу)
+        double totalWithoutDiscount = quantity * price;
+        double discountAmount = totalWithoutDiscount * (discountPercent / 100.0);
+        double finalPrice = totalWithoutDiscount - discountAmount;
 
-        // 2. Вывод результат проверки на чётность (true/false)
-        System.out.println("Число чётное?: " + (number % 2 == 0));
+        // Вывод результатов
+        System.out.println("=== ЧЕК ПОКУПКИ ===");
+        System.out.println("Наименование товара: " + product);
+        System.out.println("Количество: " + quantity);
+        System.out.println("Стоимость без скидки: " + totalWithoutDiscount + " тг");
+        System.out.println("Сумма скидки (" + discountPercent + "%): " + discountAmount + " тг");
+        System.out.println("Итоговая стоимость: " + finalPrice + " тг");
 
         /*
-         * Ответы и пояснения к Заданию 3.3:
-         * 1. Остаток от деления 7 на 2 равен 1.
-         * 2. Выражение (number % 2 == 0) возвращает false,
-         *    так как число 7 является нечётным (1 != 0).
+         * Пояснения к выполнению Задания «Чек покупки»:
+         * 1. Стоимость без скидки вычисляется путем умножения количества на цену товара (quantity * price).
+         * 2. Сумма скидки находится как процент от стоимости без скидки (totalWithoutDiscount * (discountPercent / 100.0)).
+         * 3. Итоговая стоимость рассчитывается вычитанием суммы скидки из стоимости без скидки (totalWithoutDiscount - discountAmount).
+         * 4. Все итоговые числа вычислены автоматически выражениями без жесткого ручного ввода чисел.
          */
     }
 }

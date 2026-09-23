@@ -1,21 +1,20 @@
 // ==========================================
-// В БӨЛІМІ. КЛАСТАР ЖӘНЕ ОБЪЕКТІЛЕР (ОҚУ КУРСЫНЫҢ ЖҮЙЕСІ)
+// ЧАСТЬ B. КЛАССЫ И ОБЪЕКТЫ (СИСТЕМА УЧЕБНЫХ КУРСОВ)
 // ==========================================
 
 class Student {
-    // [ҚОСЫМША ТАПСЫРМА]: static int studentCount
+    // [ДОПОЛНИТЕЛЬНОЕ ЗАДАНИЕ]: Подсчёт количества созданных студентов
     private static int studentCount = 0;
 
     /*
-     * [ҚОСЫМША ТАПСЫРМА СҰРАҒЫНЫҢ ЖАУАБЫ]:
-     * Сұрақ: "Неге name өрісі static болмауы керек?"
+     * [ОТВЕТ НА ДОПОЛНИТЕЛЬНОЕ ЗАДАНИЕ]:
+     * Вопрос: Почему поле 'name' не должно быть static?
      *
-     * Жауап:
-     * Java-да 'static' өрісі барлық объектілер үшін жалпы (ортақ) болады.
-     * Егер name өрісін static қылсақ, жаңа студент құрылған сайын
-     * бұрынғы барлық студенттердің есімі ең соңғы жазылған студенттің атына ауысып кетеді.
-     * Адамның есімі (name) — әр студенттің өзіне ғана тиесілі жеке сипаттамасы (instance field),
-     * сондықтан ол static болмай, әр объектінің ішінде жеке сақталуы тиіс!
+     * Ответ: Поле 'static' является общим для всех объектов данного класса.
+     * Если сделать 'name' статическим, то при создании каждого нового объекта
+     * имя абсолютно всех студентов будет перезаписываться последним введенным именем.
+     * Имя студента (name) — это индивидуальная характеристика конкретного экземпляра
+     * (instance field), поэтому оно должно храниться отдельно в каждом объекте.
      */
     private String name;
     private String studentId;
@@ -63,7 +62,7 @@ class Course {
     public static int getCourseCount() { return courseCount; }
 
     public void printInfo() {
-        System.out.println("Курс: " + title + " (" + code + ") | Кредит: " + credits);
+        System.out.println("Курс: " + title + " (" + code + ") | Кредиты: " + credits);
     }
 }
 
@@ -82,30 +81,30 @@ class Enrollment {
         if (grade >= 0 && grade <= 100) {
             this.grade = grade;
         } else {
-            System.out.println("ҚАТЕ: Оценка " + grade + " недопустима! Должна быть от 0 до 100.");
+            System.out.println("ОШИБКА: Оценка " + grade + " недопустима! Должна быть в диапазоне от 0 до 100.");
         }
     }
 
     public void printSummary() {
-        System.out.println("Enrollment -> Студент: " + student.getName() +
+        System.out.println("Зачисление -> Студент: " + student.getName() +
                 " | Курс: " + course.getTitle() +
                 " | Оценка: " + grade);
     }
 }
 
 // ==========================================
-// НЕГІЗГІ ПРАКТИКАЛЫҚ КЛАСС (Practice2.java)
+// ОСНОВНОЙ КЛАСС ДЛЯ ЗАПУСКА (Practice2.java)
 // ==========================================
 public class Practice2 {
     public static void main(String[] args) {
 
         // ---------------------------------------------------------
-        // А БӨЛІМІ. 1-ТАПСЫРМА: Топ нәтижелерін талдау
+        // ЧАСТЬ A. ЗАДАНИЕ 1. Анализ результатов группы
         // ---------------------------------------------------------
-        System.out.println("=== А БӨЛІМІ. 1-ТАПСЫРМА: Топ нәтижелерін талдау ===");
+        System.out.println("=== ЧАСТЬ A. ЗАДАНИЕ 1: Анализ результатов группы ===");
         int[] scores = {78, 91, 65, 88, 73, 95, 54, 82, 69, 91};
 
-        // ТҮЗЕТІЛДІ: scores[0] арқылы бірінші элемент алынды
+        // ДҰРЫС: [0] индексі қосылды
         int min = scores[0];
         int max = scores[0];
         int sum = 0;
@@ -122,17 +121,17 @@ public class Practice2 {
         }
         double avg = (double) sum / scores.length;
 
-        System.out.println("Минимум балл: " + min);
-        System.out.println("Максимум балл: " + max);
-        System.out.println("Қосындысы: " + sum + " | Орташа балл: " + avg);
-        System.out.println("80+ балл алғандар саны: " + count80Plus);
-        System.out.println("Жұп баллдар саны: " + evenCount);
+        System.out.println("Минимальный балл: " + min);
+        System.out.println("Максимальный балл: " + max);
+        System.out.println("Сумма: " + sum + " | Средний балл: " + avg);
+        System.out.println("Студентов с баллом 80+: " + count80Plus);
+        System.out.println("Количество чётных баллов: " + evenCount);
         System.out.println();
 
         // ---------------------------------------------------------
-        // А БӨЛІМІ. 2-ТАПСЫРМА: Бағалар кестесі
+        // ЧАСТЬ A. ЗАДАНИЕ 2. Таблица оценок
         // ---------------------------------------------------------
-        System.out.println("=== А БӨЛІМІ. 2-ТАПСЫРМА: Бағалар кестесі ===");
+        System.out.println("=== ЧАСТЬ A. ЗАДАНИЕ 2: Таблица оценок ===");
         int[][] grades = {
                 {78, 91, 88},
                 {65, 72, 70},
@@ -140,7 +139,7 @@ public class Practice2 {
                 {81, 76, 85}
         };
 
-        // ТҮЗЕТІЛДІ: grades[0][0] арқылы бірінші элемент алынды
+        // ДҰРЫС: [0][0] индексі қосылды
         int maxGrade = grades[0][0];
         int maxRow = 0, maxCol = 0;
         double bestStudentAvg = -1;
@@ -160,7 +159,7 @@ public class Practice2 {
                 }
             }
             double studentAvg = (double) rowSum / grades[row].length;
-            System.out.println("| Орташа балл: " + studentAvg);
+            System.out.println("| Средний балл: " + studentAvg);
 
             if (studentAvg > bestStudentAvg) {
                 bestStudentAvg = studentAvg;
@@ -168,24 +167,25 @@ public class Practice2 {
             }
         }
 
-        System.out.print("Пәндердің орташа балы: ");
+        System.out.print("Средний балл по предметам: ");
+        // ДҰРЫС: grades[0].length арқылы бағандар саны (3) алынды
         int numCols = grades[0].length;
         for (int col = 0; col < numCols; col++) {
             int colSum = 0;
             for (int row = 0; row < grades.length; row++) {
                 colSum += grades[row][col];
             }
-            System.out.print((double) colSum / grades.length + "\t");
+            System.out.print(((double) colSum / grades.length) + "\t");
         }
         System.out.println();
-        System.out.println("Ең үлкен балл кестеде: " + maxGrade + " [орны: row=" + maxRow + ", col=" + maxCol + "]");
-        System.out.println("Ең жоғары орташа балл алған студент index: " + bestStudentIndex + " (балл: " + bestStudentAvg + ")");
+        System.out.println("Максимальный элемент таблицы: " + maxGrade + " [позиция: row=" + maxRow + ", col=" + maxCol + "]");
+        System.out.println("Студент с самым высоким средним баллом: индекс " + bestStudentIndex + " (балл: " + bestStudentAvg + ")");
         System.out.println();
 
         // ---------------------------------------------------------
-        // А БӨЛІМІ. 3-ТАПСЫРМА: Мәтінді өңдеу
+        // ЧАСТЬ A. ЗАДАНИЕ 3. Обработка текста
         // ---------------------------------------------------------
-        System.out.println("=== А БӨЛІМІ. 3-ТАПСЫРМА: Мәтінді өңдеу ===");
+        System.out.println("=== ЧАСТЬ A. ЗАДАНИЕ 3: Обработка текста ===");
         String text = " Java, Python, java, C++, Kotlin, JAVA, Python ";
         String trimmedText = text.trim();
         String[] words = trimmedText.split(",");
@@ -196,7 +196,7 @@ public class Practice2 {
 
         for (String w : words) {
             String cleanWord = w.trim();
-            System.out.println("Сөз: '" + cleanWord + "' | Ұзындығы: " + cleanWord.length());
+            System.out.println("Слово: '" + cleanWord + "' | Длина: " + cleanWord.length());
 
             if (cleanWord.equalsIgnoreCase("java")) {
                 javaCount++;
@@ -209,31 +209,31 @@ public class Practice2 {
                 filteredWords.append(cleanWord);
             }
         }
-        System.out.println("'Java' сөзінің саны (регистрсіз): " + javaCount);
-        System.out.println("Ұзындығы 4-тен үлкен сөздер саны: " + longWordsCount);
-        System.out.println("Ұзындығы 5+ сөздерден жаңа жол: " + filteredWords.toString());
+        System.out.println("Количество вхождений 'Java' (без учёта регистра): " + javaCount);
+        System.out.println("Количество слов длиной более 4 символов: " + longWordsCount);
+        System.out.println("Новая строка со словами длиной 5+ символов: " + filteredWords.toString());
         System.out.println();
 
         // ---------------------------------------------------------
-        // А БӨЛІМІ. 4-ТАПСЫРМА: StringBuilder арқылы есеп
+        // ЧАСТЬ A. ЗАДАНИЕ 4. Отчёт через StringBuilder
         // ---------------------------------------------------------
-        System.out.println("=== А БӨЛІМІ. 4-ТАПСЫРМА: StringBuilder арқылы есеп ===");
+        System.out.println("=== ЧАСТЬ A. ЗАДАНИЕ 4: Отчёт через StringBuilder ===");
         StringBuilder report = new StringBuilder();
-        report.append("ТОП БОЙЫНША ЕСЕП\n");
-        report.append("Саны: ").append(scores.length).append("\n");
-        report.append("Орташа балл: ").append(avg).append("\n");
+        report.append("ОТЧЁТ ПО ГРУППЕ\n");
+        report.append("Количество: ").append(scores.length).append("\n");
+        report.append("Средний балл: ").append(avg).append("\n");
         report.append("Максимум: ").append(max).append("\n");
         report.append("Минимум: ").append(min).append("\n");
-        report.append("80+ студенттер: ").append(count80Plus);
+        report.append("80+ студентов: ").append(count80Plus);
 
         String finalReport = report.toString();
         System.out.println(finalReport);
         System.out.println();
 
         // ---------------------------------------------------------
-        // В БӨЛІМІ. КЛАСТАР МЕН ОБЪЕКТІЛЕРДІ ТЕКСЕРУ (Main)
+        // ЧАСТЬ B. ЭТАП 4: Проверка работы классов (Main)
         // ---------------------------------------------------------
-        System.out.println("=== В БӨЛІМІ: Кластар мен объектілерді тексеру ===");
+        System.out.println("=== ЧАСТЬ B: Проверка классов и объектов ===");
 
         Student s1 = new Student("Amina", "S001", 3.6);
         Student s2 = new Student("Dias", "S002", 3.2);
@@ -258,7 +258,7 @@ public class Practice2 {
         e2.printSummary();
         e3.printSummary();
 
-        System.out.println("Жалпы құрылған курстар саны (Course.getCourseCount): " + Course.getCourseCount());
-        System.out.println("Жалпы құрылған студенттер саны (Student.getStudentCount): " + Student.getStudentCount());
+        System.out.println("Всего создано курсов (Course.getCourseCount): " + Course.getCourseCount());
+        System.out.println("Всего создано студентов (Student.getStudentCount): " + Student.getStudentCount());
     }
 }

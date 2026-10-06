@@ -1,5 +1,5 @@
 // ==========================================
-// КОНСПЕКТ 5: МИНИ-ПРАКТИКА (Conspect5.java)
+// CONSPECT 5: MINI-PRACTICE (Conspect5.java)
 // ==========================================
 
 enum ProductStatus {
@@ -7,7 +7,6 @@ enum ProductStatus {
     DISCONTINUED
 }
 
-// Қателік болмас үшін класс атын Product5 деп өзгерттік
 class Product5 {
     private final String code;
     private String name;
@@ -16,13 +15,13 @@ class Product5 {
 
     public Product5(String code, String name, double price) {
         if (code == null || code.isBlank()) {
-            throw new IllegalArgumentException("Тауар коды бос болмауы тиіс!");
+            throw new IllegalArgumentException("Product code cannot be empty!");
         }
         if (name == null || name.isBlank()) {
-            throw new IllegalArgumentException("Тауар аты бос болмауы тиіс!");
+            throw new IllegalArgumentException("Product name cannot be empty!");
         }
         if (!Double.isFinite(price) || price <= 0) {
-            throw new IllegalArgumentException("Баға оң сан және ақырлы болуы тиіс!");
+            throw new IllegalArgumentException("Price must be a finite positive number!");
         }
 
         this.code = code.strip();
@@ -38,17 +37,17 @@ class Product5 {
 
     public void discontinue() {
         if (this.status == ProductStatus.DISCONTINUED) {
-            throw new IllegalStateException("Тауар өндірістен бұрыннан шығарылған!");
+            throw new IllegalStateException("Product is already discontinued!");
         }
         this.status = ProductStatus.DISCONTINUED;
     }
 
     public void changePrice(double newPrice) {
         if (this.status != ProductStatus.ACTIVE) {
-            throw new IllegalStateException("Өндірістен шығарылған тауардың бағасын өзгертуге болмайды!");
+            throw new IllegalStateException("Cannot change price of a discontinued product!");
         }
         if (!Double.isFinite(newPrice) || newPrice <= 0) {
-            throw new IllegalArgumentException("Жаңа баға оң сан болуы тиіс!");
+            throw new IllegalArgumentException("New price must be a positive number!");
         }
         this.price = newPrice;
     }
@@ -66,30 +65,30 @@ class Product5 {
 
 public class Conspect5 {
     public static void main(String[] args) {
-        System.out.println("=== 1. Дұрыс тауар құру ===");
-        Product5 laptop = new Product5("P1001", "Ноутбук", 450000.0);
-        System.out.println("Бастапқы тауар: " + laptop);
+        System.out.println("=== 1. Creating a valid product ===");
+        Product5 laptop = new Product5("P1001", "Laptop", 450000.0);
+        System.out.println("Initial product: " + laptop);
 
-        System.out.println("\n=== 2. Бағасын ауыстыру (changePrice) ===");
+        System.out.println("\n=== 2. Changing price successfully ===");
         laptop.changePrice(420000.0);
-        System.out.println("Жаңа баға: " + laptop.getPrice() + " тг");
+        System.out.println("New price: " + laptop.getPrice() + " KZT");
 
-        System.out.println("\n=== 3. Өндірістен шығару (discontinue) ===");
+        System.out.println("\n=== 3. Discontinuing product ===");
         laptop.discontinue();
-        System.out.println("Жаңа статус: " + laptop.getStatus());
+        System.out.println("New status: " + laptop.getStatus());
 
-        System.out.println("\n=== 4. Қате сценарий: өндірістен шыққан соң баға өзгерту ===");
+        System.out.println("\n=== 4. Error scenario: Changing price after discontinue ===");
         try {
             laptop.changePrice(400000.0);
         } catch (IllegalStateException e) {
-            System.out.println("Ұсталған қателік: " + e.getMessage());
+            System.out.println("Caught state exception: " + e.getMessage());
         }
 
-        System.out.println("\n=== 5. Қате сценарий: теріс баға беру ===");
+        System.out.println("\n=== 5. Error scenario: Passing negative price ===");
         try {
-            Product5 phone = new Product5("P1002", "Смартфон", -50000.0);
+            Product5 phone = new Product5("P1002", "Smartphone", -50000.0);
         } catch (IllegalArgumentException e) {
-            System.out.println("Ұсталған қателік: " + e.getMessage());
+            System.out.println("Caught argument exception: " + e.getMessage());
         }
     }
 }
